@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="balance_money_seq" model="ir.sequence">
+            <field name="name">BALANCE Money Tracker Sequence</field>
+            <field name="code">mtracker.mtracker</field>
+            <field name="prefix">Balance-MTR</field>
+            <field name="padding">1</field>
+            <field name="implementation">no_gap</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,90 @@
+<odoo>
+    <data>
+
+        <record id="money_track_form" model="ir.ui.view">
+            <field name="name">money.track.form</field>
+            <field name="model">mtracker.mtracker</field>
+            <field name="arch" type="xml">
+                <form string="Money Track Form">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="" class="oe_edit_only"/>
+                            <h1>
+                                <field name="sequence" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="money_amount"/>
+                            <field name="description"/>
+                            <field name="date_money"/>
+                            <field name="type" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- explicit list view definition -->
+
+        <record id="money_tracker_tree" model="ir.ui.view">
+            <field name="name">money.tracker.tree</field>
+            <field name="model">mtracker.mtracker</field>
+            <field name="arch" type="xml">
+                <tree string="Money Tree">
+                    <field name="sequence"/>
+                    <field name="description"/>
+                    <field name="date_money"/>
+                    <field name="type"/>
+                    <field name="money_amount" sum="Total Amount"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+        <record id="mtracker_action_window" model="ir.actions.act_window">
+            <field name="name">My Wallet</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mtracker.mtracker</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+        <record model="ir.actions.server" id="mtracker.action_server">
+          <field name="name">mtracker server</field>
+          <field name="model_id" ref="model_mtracker_mtracker"/>
+          <field name="state">code</field>
+          <field name="code">
+            action = {
+              "type": "ir.actions.act_window",
+              "view_mode": "tree,form",
+              "res_model": self._name,
+            }
+          </field>
+        </record>
+        -->
+
+        <!-- Top menu item -->
+
+        <menuitem name="Money Tracker" id="mtracker_menu_root"/>
+
+        <!--    &lt;!&ndash; menu categories &ndash;&gt;-->
+
+        <!--    <menuitem name="Menu 1" id="mtracker_menu_1" parent="mtracker_menu_root"/>-->
+
+        <!-- actions -->
+
+        <menuitem name="WALLET" id="mtracker_menu_1_list" parent="mtracker_menu_root"
+                  action="mtracker_action_window"/>
+    </data>
+</odoo>

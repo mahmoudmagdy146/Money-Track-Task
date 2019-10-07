@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="course_report_id"
+                string='Total Balance'
+                model="mtracker.mtracker"
+                report_type="qweb-pdf"
+                name="mtracker.report_lunch_order"
+                file="mtracker.report_lunch_order"
+                print_report_name="'TOTAL BALANCE REPORT - %s' % (object.sequence)"
+        />
+    </data>
+
+</odoo>
+
+
